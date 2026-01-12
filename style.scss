@@ -12,9 +12,10 @@ body {
 
 html {
   font-size: clamp(0.875rem, 1vw + 0.5rem, 1.125rem);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-@mixin flex-Column( $gap : 0rem) {
+@mixin flex-Column($gap: 0rem) {
   display: flex;
   flex-direction: column;
   gap: $gap;
@@ -24,58 +25,14 @@ html {
   padding: 1rem;
   background-color: rgb(15, 15, 15);
   color: rgb(245, 245, 245);
-  width: 100vw;
-
-  // nav {
-  //   display: flex;
-  //   align-items: center;
-  //   justify-content: space-between;
-  //   // background: #5a565698;
-  //   padding: 0.7rem 0.5rem;
-
-  //   .left-nav {
-  //     p {
-  //       font-size: 1.3rem;
-  //       word-spacing: 0.1rem;
-  //     }
-  //   }
-
-  //   .right-nav {
-  //     display: flex;
-  //     gap: 0.5rem;
-
-  //     .part1 {
-  //       display: flex;
-  //       align-items: center;
-  //       gap: 10px;
-  //       background-color: #5a565698;
-  //       padding: 0.5rem 1rem;
-  //       font-size: 1rem;
-
-  //       i {
-  //         font-size: 0.7rem;
-  //         padding: 0.2rem;
-  //         border-radius: 50%;
-  //         background-color: rgb(204, 202, 64);
-  //       }
-  //     }
-
-  //     .part2 {
-  //       background-color: #5a565698;
-  //       padding: 0.5rem;
-  //       font-size: 1.5rem;
-  //     }
-  //   }
-  // }
+  width: 100%;
 
   main {
     .section1 {
-     @include flex-Column(1rem);
+      @include flex-Column(1rem);
     }
 
     .section1-part1 {
-      border-radius: 0.7rem;
-
       img {
         width: 100%;
         border-radius: 0.7rem;
@@ -85,6 +42,68 @@ html {
     .section1-part2 {
       background-color: rgb(36, 36, 36);
       border-radius: 0.7rem;
+      @include flex-Column(4.5rem);
+      padding: 2rem;
+
+      p {
+        font-weight: 300;
+        letter-spacing: 2px;
+      }
+
+      .text {
+        @include flex-Column(1rem);
+
+        h1 {
+          color: #f4f2ed;
+          font-weight: 400;
+          font-size: 2.7rem;
+          line-height: 3.2rem;
+          letter-spacing: 2px;
+          text-transform: uppercase;
+        }
+
+        p {
+          color: #b1b1b1;
+          font-weight: 400;
+          font-size: 1.5rem;
+          line-height: 2.4rem;
+        }
+
+        .text-dottem {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+
+          .text-dottem-btn {
+            color: #b1b1b1;
+            font-size: 1.5rem;
+            font-weight: 100;
+            padding: 5px 6px;
+            border: 1px solid rgb(94, 94, 94);
+            border-radius: 50%;
+            background-color: rgb(37, 37, 37);
+          }
+
+          p {
+            color: #f4f2ed;
+            font-size: 1rem;
+            text-transform: uppercase;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 901px) {
+  main {
+    .section1 {
+
+      flex-direction: row;
+
+      .section1-part1, .section1-part2 {
+        width: 50%;
+      }
     }
   }
 }
